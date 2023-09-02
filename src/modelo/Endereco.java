@@ -47,6 +47,6 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Endereço: " + rua + ", " + numero + ", " + bairro.toString();
+        return "Endereço: " + rua + ", " + numero + ", " + bairro.getNome();
     }
 }

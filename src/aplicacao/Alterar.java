@@ -27,9 +27,15 @@ public class Alterar {
 		q.descend("nome").constrain("Gustavo");
 		List<Pessoa> resultado = q.execute();
 		
-		if(resultado.size()>0) {
+		Query q2 = manager.query();
+		q2.constrain(Endereco.class);
+		q2.descend("id").constrain(5);
+		List<Endereco> resultado2 = q2.execute();
+		
+		if(resultado.size()>0 && resultado2.size()>0) {
 			Pessoa p = resultado.get(0);
-			p.setGrauAmizade(5);
+			Endereco e = resultado2.get(0);
+			p.setEndereco(e);
 			manager.store(p);
 			manager.commit();
 			System.out.println("Alteracao feita.");

@@ -1,15 +1,13 @@
 package modelo;
 
-import java.time.LocalDate;
-import java.util.Date;
 
 public class Pessoa {
     private String nome;
     private Endereco endereco;
     private int grauAmizade;
-    private Date dtNascimento;
+    private String dtNascimento;
 
-    public Pessoa(String nome, Endereco endereco, int grauAmizade, Date dtNascimento) {
+    public Pessoa(String nome, Endereco endereco, int grauAmizade, String dtNascimento) {
         this.nome = nome;
         this.endereco = endereco;
         this.grauAmizade = grauAmizade;
@@ -40,11 +38,11 @@ public class Pessoa {
         this.grauAmizade = grauAmizade;
     }
 
-    public Date getDtNascimento() {
+    public String getDtNascimento() {
         return dtNascimento;
     }
 
-    public void setDtNascimento(Date dtNascimento) {
+    public void setDtNascimento(String dtNascimento) {
         this.dtNascimento = dtNascimento;
     }
 

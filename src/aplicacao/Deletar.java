@@ -26,7 +26,7 @@ public class Deletar {
 		q.constrain(Pessoa.class);
 		q.descend("nome").constrain("Caio");
 		List<Pessoa> resultado = q.execute();
-		
+	
 		if (resultado.size()>0) {
 			Pessoa p = resultado.get(0);
 			manager.delete(p);
