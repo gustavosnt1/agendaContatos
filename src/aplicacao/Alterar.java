@@ -32,7 +32,7 @@ public class Alterar {
 		q2.descend("id").constrain(5);
 		List<Endereco> resultado2 = q2.execute();
 		
-		if(resultado.size()>0 && resultado2.size()>0) {
+		if(!resultado.isEmpty() && !resultado2.isEmpty()) {
 			Pessoa p = resultado.get(0);
 			Endereco e = resultado2.get(0);
 			p.setEndereco(e);
