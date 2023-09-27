@@ -4,10 +4,9 @@ public class Endereco {
     private int id;
     private String rua;
     private int numero;
-    private Bairro bairro;
+    private String bairro;
 
-    public Endereco(int id, String rua, int numero, Bairro bairro) {
-        this.id = id;
+    public Endereco(String rua, int numero, String bairro) {
         this.rua = rua;
         this.numero = numero;
         this.bairro = bairro;
@@ -37,16 +36,16 @@ public class Endereco {
         this.numero = numero;
     }
 
-    public Bairro getBairro() {
+    public String getBairro() {
         return bairro;
     }
 
-    public void setBairro(Bairro bairro) {
+    public void setBairro(String bairro) {
         this.bairro = bairro;
     }
 
     @Override
     public String toString() {
-        return "Endereço: " + rua + ", " + numero + ", " + bairro.getNome();
+        return "Endereço: " + rua + ", " + numero + ", " + bairro;
     }
 }

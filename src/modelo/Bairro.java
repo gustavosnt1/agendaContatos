@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Bairro {
     private String nomeBairro;
-    private ArrayList<Endereco> enderecos = new ArrayList<>();
+    private ArrayList<Endereco> enderecos;
     
     public Bairro(String nomeBairro){
         this.nomeBairro = nomeBairro;
@@ -20,7 +20,7 @@ public class Bairro {
     }
     
     public void adicionarEndereco(Endereco endereco) {
-    	enderecos.add(endereco);
+    	this.enderecos.add(endereco);
     }
     
     public void removerEndereco(int id) {
@@ -33,6 +33,6 @@ public class Bairro {
     
     @Override
     public String toString() {
-        return "Bairro: " + nomeBairro + ", " + "enderecos: " + enderecos.toString();
+        return "Bairro: " + nomeBairro + ", " + "enderecos: " + enderecos;
         }
 }
