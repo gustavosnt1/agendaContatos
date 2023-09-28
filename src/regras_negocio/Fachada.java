@@ -47,6 +47,8 @@ public class Fachada {
 		return bairro;
 	}
 
+	//todo excluirBairro
+
 	public static Endereco cadastrarEndereco(String rua, int numero, String nomeBairro) throws Exception {
 		DAO.begin();
 		Bairro bar = daobairro.read(nomeBairro);
@@ -63,9 +65,25 @@ public class Fachada {
 		return end;
 	}
 
-	//todo cadastrarPessoa
-	
+	//todo excluirEndereco
 
+	public static Pessoa cadastrarPessoa(String nome, String rua, int numero, String nomeBairro, int grauAmizade, String DtNascimento) throws Exception {
+		DAO.begin();
+		Pessoa pessoa = daopessoa.read(nome);
+		if(pessoa!=null)
+			throw new Exception("Pessoa já existe" + nome);
+
+		String endereco = rua + " " + numero + " " + nomeBairro;
+
+		pessoa = new Pessoa(nome, endereco, grauAmizade, DtNascimento);
+
+		daopessoa.create(pessoa);
+		DAO.commit();
+		return pessoa;
+	}
+	
+	//todo excluirPessoa
+	
 	public static List<Bairro>  listarBairros(){
 		DAO.begin();
 		List<Bairro> resultados =  daobairro.readAll();
@@ -82,6 +100,13 @@ public class Fachada {
 
 	//todo listarPessoas
 
+	public static List<Pessoa> listarPessoas(){
+		DAO.begin();
+		List<Pessoa> resultados =  daopessoa.readAll();
+		DAO.commit();
+		return resultados;
+	}
+
 	public static List<Usuario>  listarUsuarios(){
 		DAO.begin();
 		List<Usuario> resultados =  daousuario.readAll();
@@ -93,8 +118,8 @@ public class Fachada {
 	public static Bairro localizarBairro(String nomeBairro){
 		return daobairro.read(nomeBairro);
 	}
-	public static Endereco localizarEndereco(String rua){
-		return daoendereco.read(rua);
+	public static Endereco localizarEndereco(int id){
+		return daoendereco.read(id);
 	}
 	public static Pessoa localizarPessoa(String nome){
 		return daopessoa.read(nome);

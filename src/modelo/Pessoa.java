@@ -3,11 +3,11 @@ package modelo;
 
 public class Pessoa {
     private String nome;
-    private Endereco endereco;
+    private String endereco;
     private int grauAmizade;
     private String dtNascimento;
 
-    public Pessoa(String nome, Endereco endereco, int grauAmizade, String dtNascimento) {
+    public Pessoa(String nome, String endereco, int grauAmizade, String dtNascimento) {
         this.nome = nome;
         this.endereco = endereco;
         this.grauAmizade = grauAmizade;
@@ -22,11 +22,11 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public Endereco getEndereco() {
+    public String getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
@@ -49,7 +49,7 @@ public class Pessoa {
     @Override
     public String toString() {
         return "Pessoa: " + nome + "\n" +
-                "" + endereco.toString() + "\n" +
+                "" + endereco + "\n" +
                 "Grau de Amizade: " + grauAmizade + "\n" +
                 "Data de Nascimento: " + dtNascimento;
     }

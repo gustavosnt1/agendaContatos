@@ -27,6 +27,10 @@ public class Listar {
 			for(Endereco e: Fachada.listarEnderecos())
 				System.out.println(e);
 
+			System.out.println("\n---listagem de pes:");
+			for(Pessoa p: Fachada.listarPessoas())
+				System.out.println(p);
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

@@ -25,7 +25,15 @@ public class Cadastrar {
 		try {
 			System.out.println("cadastrando endereco...");
 			Fachada.cadastrarEndereco("Exemplo1", 111, "Centro");
-			Fachada.cadastrarEndereco("Exemplo2", 331, "AAA");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		try {
+			System.out.println("cadastrando pessoa...");
+			Fachada.cadastrarPessoa("Gustavo", "Exemplo1", 111, "Centro", 3, "03102002");
+			Fachada.cadastrarPessoa("Gustavo1", "Exemplo1", 111, "Centro", 3, "03102002");
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
