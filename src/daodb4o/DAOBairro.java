@@ -27,19 +27,16 @@ public class DAOBairro  extends DAO<Bairro>{
 			return null;
 	}
 
-	public List<Bairro> bairroMaisEnderecos(int n) {
-		Query q3;
-		q3 = manager.query();
-		q3.constrain(Bairro.class);
-		q3.constrain( new Filtro() );
-		return q3.execute();
-
+	public List<Bairro> getBairroWithMostAddresses(int n) {
+		Query query = manager.query();
+		query.constrain(Bairro.class);
+		query.constrain(new Filtro());
+		return query.execute();
 	}
-	//todo ajeitar consulta bairroMaisEnderecos
 	class Filtro implements Evaluation {
 		public void evaluate(Candidate candidate) {
 			Bairro b = (Bairro) candidate.getObject();
-			if (b.getEnderecos().size() > 2)
+			if (b.getEnderecos().size() > 1)
 				candidate.include(true);
 
 			else

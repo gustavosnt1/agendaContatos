@@ -26,6 +26,8 @@ public class Cadastrar {
 			System.out.println("cadastrando endereco...");
 			Fachada.cadastrarEndereco("Exemplo1", 111, "Centro");
 			Fachada.cadastrarEndereco("Exemplo2", 1112, "Centro");
+			Fachada.cadastrarEndereco("Exemplo3", 122, "Mangabeira");
+			Fachada.cadastrarEndereco("Exemplo4", 3312, "JoseAmerico");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

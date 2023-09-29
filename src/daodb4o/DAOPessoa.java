@@ -29,20 +29,18 @@ public class DAOPessoa extends DAO<Pessoa>{
 			return null;
 	}
 
-	public List<Pessoa> grauAmizadeConsulta(int grauAmizade) {
-		Query q;
-		q = manager.query();
-		q.constrain(Pessoa.class);
-		q.descend("grauAmizade").constrain(grauAmizade);
-		return q.execute();
+	public List<Pessoa> consultaPessoasPorGrauAmizade(int grauAmizade) {
+		Query query = manager.query();
+		query.constrain(Pessoa.class);
+		query.descend("grauAmizade").constrain(grauAmizade);
+		return query.execute();
 	}
 
-	public List<Pessoa> pessoasMoramBairro(String nomeBairro) {
-		Query q2;
-		q2 = manager.query();
-		q2.constrain(Pessoa.class);
-		q2.descend("endereco").descend("bairro").descend("nomeBairro").constrain(nomeBairro);
-		return q2.execute();
+	public List<Pessoa> getPessoasByBairro(String nomeBairro) {
+		Query query = manager.query();
+		query.constrain(Pessoa.class);
+		query.descend("endereco").descend("bairro").descend("nomeBairro").constrain(nomeBairro);
+		return query.execute();
 	}
 
 }

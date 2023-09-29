@@ -1,14 +1,16 @@
+
 package appconsole;
 
 import regras_negocio.Fachada;
 
-public class Apagar {
-    public Apagar() {
+public class Alterar {
+	
+	public Alterar() {
 		try {
 			Fachada.inicializar();
-			Fachada.excluirPessoa("Gustavo");
-			System.out.println("pessoa excluido");
-
+			Fachada.trocarEndereco("Gustavo", 3);
+			System.out.println("endereco trocado");
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -16,7 +18,8 @@ public class Apagar {
 		Fachada.finalizar();
 		System.out.println("\nfim do programa !");
 	}
+
 	public static void main(String[] args) {
-		new Apagar();
+		new Alterar();
 	}
 }

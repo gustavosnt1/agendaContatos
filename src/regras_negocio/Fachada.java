@@ -141,8 +141,6 @@ public class Fachada {
 		return resultados;
 	}
 
-	//todo listarPessoas
-
 	public static List<Pessoa> listarPessoas(){
 		DAO.begin();
 		List<Pessoa> resultados =  daopessoa.readAll();
@@ -157,30 +155,39 @@ public class Fachada {
 		return resultados;
 	}
 
-	public static List<Bairro> bairroMaisEnderecos(int n){
+
+	public static void trocarEndereco(String nome, int id) throws Exception{
 		DAO.begin();
-		List<Bairro> resultados =  daobairro.bairroMaisEnderecos(n);
+		Endereco endereco = daoendereco.read(id);
+		Pessoa pessoa = daopessoa.read(nome);
+		if(endereco==null)
+			throw new Exception("Endereco não encontrado");
+
+		pessoa.setEndereco(endereco.getRua() + " " + endereco.getNumero() + " " + endereco.getBairro());
+		daopessoa.update(pessoa);
+		DAO.commit();
+	}
+
+	public static List<Bairro> getBairroWithMostAddresses(int n){
+		DAO.begin();
+		List<Bairro> resultados =  daobairro.getBairroWithMostAddresses(n);
 		DAO.commit();
 		return resultados;
 	}
 
-	public static List<Pessoa> grauAmizadeConsulta (int grauAmizade){
+	public static List<Pessoa> consultaPessoasPorGrauAmizade (int grauAmizade){
 		DAO.begin();
-		List<Pessoa> resultados =  daopessoa.grauAmizadeConsulta(grauAmizade);
+		List<Pessoa> resultados =  daopessoa.consultaPessoasPorGrauAmizade(grauAmizade);
 		DAO.commit();
 		return resultados;
 	}
 
-	public static List<Pessoa> pessoasMoramBairro(String nomeBairro){
+	public static List<Pessoa> getPessoasByBairro(String nomeBairro){
 		DAO.begin();
-		List<Pessoa> resultados =  daopessoa.pessoasMoramBairro(nomeBairro);
+		List<Pessoa> resultados =  daopessoa.getPessoasByBairro(nomeBairro);
 		DAO.commit();
 		return resultados;
 	}
-
-
-
-
 
 
 	public static Bairro localizarBairro(String nomeBairro){
