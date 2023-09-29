@@ -25,6 +25,7 @@ public class Cadastrar {
 		try {
 			System.out.println("cadastrando endereco...");
 			Fachada.cadastrarEndereco("Exemplo1", 111, "Centro");
+			Fachada.cadastrarEndereco("Exemplo2", 1112, "Centro");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -32,7 +33,7 @@ public class Cadastrar {
 		try {
 			System.out.println("cadastrando pessoa...");
 			Fachada.cadastrarPessoa("Gustavo", "Exemplo1", 111, "Centro", 3, "03102002");
-			Fachada.cadastrarPessoa("Gustavo1", "Exemplo1", 111, "Centro", 3, "03102002");
+			Fachada.cadastrarPessoa("Gustavo2", "Exemplo2", 1112, "Centro", 2, "03102002");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
